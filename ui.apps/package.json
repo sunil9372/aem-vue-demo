@@ -12,9 +12,16 @@
   "devDependencies": {
     "@types/node": "^13.7.4",
     "@types/webpack": "^4.41.6",
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.2",
+    "vue-loader": "^15.9.0",
+    "vue-property-decorator": "^8.4.0",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "vue": "^2.6.11"
   }
 }
