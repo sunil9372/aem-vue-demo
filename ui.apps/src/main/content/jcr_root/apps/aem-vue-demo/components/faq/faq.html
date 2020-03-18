@@ -2,13 +2,14 @@
         data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
         data-sly-use.faqModel="com.designisdead.aemvuedemo.core.models.FaqModel"></sly>
 <div class="cmp--faq__container">
-    <h2>${properties.title}</h2>
-    <ul data-sly-list="${faqModel.faqItems}">
-        <li>
-            <p>${item.question}</p>
-            <p>${item.answer}</p>
-        </li>
-    </ul>
+    <avd-faq-list title="${properties.title}">
+        <ul data-sly-list="${faqModel.faqItems}">
+            <li>
+                <p>${item.question}</p>
+                <p>${item.answer}</p>
+            </li>
+        </ul>
+    </avd-faq-list>
 </div>
 
 <sly data-sly-call="${templates.placeholder @ isEmpty = (!properties.title)}"></sly>
