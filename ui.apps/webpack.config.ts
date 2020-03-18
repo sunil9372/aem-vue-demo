@@ -2,6 +2,7 @@
 
 import * as webpack from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const CLIENTLIB_ROOT = './src/main/content/jcr_root/apps/aem-vue-demo/clientlibs';
 const CLIENTLIB_NAME = 'clientlib-site';
@@ -26,9 +27,13 @@ function createConfig(clientlibRoot: string, clientlib: string): webpack.Configu
                     loader: 'ts-loader',
                     exclude: /node_modules/,
                     options: {
-                        appendTsSuffixTo: [/\.vue$/],
+                        appendTsSuffixTo: [/\.vue$/]
                     }
                 },
+                {
+                    test: /\.scss$/,
+                    use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                }
             ]
         },
         resolve: {
@@ -38,7 +43,10 @@ function createConfig(clientlibRoot: string, clientlib: string): webpack.Configu
             extensions: ['.ts', '.tsx', '.vue', '.json']
         },
         plugins: [
-            new VueLoaderPlugin()
+            new VueLoaderPlugin(),
+            new MiniCssExtractPlugin({
+                filename: './[name].css'
+            })
         ]
     };
 }
