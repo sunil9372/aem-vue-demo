@@ -3,12 +3,10 @@
         data-sly-use.faqModel="com.designisdead.aemvuedemo.core.models.FaqModel"></sly>
 <div class="cmp--faq__container">
     <avd-faq-list title="${properties.title}">
-        <ul data-sly-list="${faqModel.faqItems}">
-            <li>
-                <p>${item.question}</p>
-                <p>${item.answer}</p>
-            </li>
-        </ul>
+        <avd-faq-item data-sly-repeat="${faqModel.faqItems}">
+            <template #question>${item.question}</template>
+            <template #answer>${item.answer}</template>
+        </avd-faq-item>
     </avd-faq-list>
 </div>
 
